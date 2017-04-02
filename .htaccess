@@ -8,15 +8,15 @@
     Require all denied
   </IfModule>
   <IfModule !mod_authz_core.c>
-    Order allow,deny
+#    Order allow,deny
   </IfModule>
 </FilesMatch>
 
 # Don't show directory listings for URLs which map to a directory.
-Options -Indexes
+#Options -Indexes
 
 # Set the default handler.
-DirectoryIndex index.php index.html index.htm
+#DirectoryIndex index.php index.html index.htm
 
 # Add correct encoding for SVGZ.
 AddType image/svg+xml svg svgz
@@ -29,14 +29,14 @@ AddEncoding gzip svgz
 
 # PHP 5, Apache 1 and 2.
 <IfModule mod_php5.c>
-  php_value assert.active                   0
+#  php_value assert.active                   0
   php_flag session.auto_start               off
-  php_value mbstring.http_input             pass
-  php_value mbstring.http_output            pass
+#  php_value mbstring.http_input             pass
+#  php_value mbstring.http_output            pass
   php_flag mbstring.encoding_translation    off
   # PHP 5.6 has deprecated $HTTP_RAW_POST_DATA and produces warnings if this is
   # not set.
-  php_value always_populate_raw_post_data   -1
+#  php_value always_populate_raw_post_data   -1
 </IfModule>
 
 # Requires mod_expires to be enabled.
